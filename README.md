@@ -1,7 +1,7 @@
 # EggBot
 
-A self-hosted Discord community bot for the **Paragon Network** Minecraft server, built on
-[JDA 6](https://jda.wiki/) with SQLite persistence and a YAML configuration file.
+A self-hosted Discord community bot, built on [JDA 6](https://jda.wiki/) with SQLite
+persistence and a YAML configuration file.
 
 It handles the day-to-day operation of a single guild: tickets, moderation with timed
 punishments, automod, invite tracking, a counting game, a media/partner programme, staff
@@ -128,8 +128,8 @@ Partner:
   queenChannel: "..."
 
 messages:
-  ip: "play.paragonnetwork.us"
-  store: "https://www.paragonnetwork.us/"
+  ip: "your.server.ip"
+  store: "https://your-store.example.com/"
   voteLinks:
     - "https://example.com/vote"
 ```
