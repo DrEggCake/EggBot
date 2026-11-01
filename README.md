@@ -128,10 +128,27 @@ Partner:
   queenChannel: "..."
 
 messages:
+  serverName: "Your Server"
+  footerText: "Your Server"
   ip: "your.server.ip"
   store: "https://your-store.example.com/"
   voteLinks:
     - "https://example.com/vote"
+
+# Domains that AutoMod will allow (won't be deleted)
+allowedDomains:
+  - "youtube.com"
+  - "youtu.be"
+  - "imgur.com"
+  - "gyazo.com"
+  - "tenor.com"
+  - "klipy.com"
+  - "giphy.com"
+  - "cdn.discordapp.com"
+  - "google.com"
+  - "duckduckgo.com"
+  - "amazon.com"
+  - "amazon.in"
 ```
 
 `!reload` (restricted via `PermissionUtility`) re-reads `config.yml` at runtime.

@@ -11,7 +11,6 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import java.awt.*;
 import java.util.List;
 import com.dreggcake.src.Utility.Roles;
-import com.dreggcake.src.Utility.RuntimeValues;
 
 public class InfoEmbedCommand implements ICommand {
 
@@ -77,7 +76,7 @@ public class InfoEmbedCommand implements ICommand {
 
                         "## :link: Important Links\n" +
                         "- [Apply for Staff](https://docs.google.com/forms/d/e/1FAIpQLSdrt6O0-xu-M0t6j7XjCY2QbORAVmViJmN816uUWJXpGA3Bqg/viewform)\n" +
-                        "- [Server Store](" + RuntimeValues.STORE + ")\n" +
+                        "- [Server Store](" + Config.getString("messages.store","https://your-store.example.com/") + ")\n" +
                         "- [Server Rules](https://docs.google.com/document/d/1dHlB99Z8CH49B0DKjXySQEfV8fmOERc8hoqpTCuhuJg/edit?usp=sharing)\n" +
 
                         voteLinksSection +
@@ -99,7 +98,7 @@ public class InfoEmbedCommand implements ICommand {
 
 
         EmbedBuilder embed = new EmbedBuilder()
-                .setTitle("WELCOME TO PARAGON NETWORK!")
+                .setTitle("WELCOME TO "+Config.getString("messages.serverName","Your Server").toUpperCase()+"!")
                 .setColor(new Color(39, 64, 253))
                 .setDescription(description);
 

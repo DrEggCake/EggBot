@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
+import com.dreggcake.src.Config.Config;
 import com.dreggcake.src.Utility.Channels;
 import com.dreggcake.src.Utility.RuntimeValues;
 
@@ -29,7 +30,7 @@ public class Ip extends ListenerAdapter {
                 ":mobile_phone: Bedrock: **"+RuntimeValues.IP+"**\n" +
                 "Port: __**29032**__");
         embed.setColor(Color.BLUE);
-        embed.setFooter("Paragon Network | Auto Response",event.getJDA().getSelfUser().getEffectiveAvatarUrl());
+        embed.setFooter(Config.getString("messages.footerText","Your Server")+" | Auto Response",event.getJDA().getSelfUser().getEffectiveAvatarUrl());
 
         message.replyEmbeds(embed.build()).queue();
     }

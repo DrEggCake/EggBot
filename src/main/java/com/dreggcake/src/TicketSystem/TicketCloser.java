@@ -16,6 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import com.dreggcake.src.Config.Config;
 import com.dreggcake.src.Utility.Channels;
 
 /**
@@ -37,7 +38,7 @@ public final class TicketCloser {
         embed.setTitle("Ticket Closed");
         embed.setDescription(noticeDescription);
         embed.setColor(Color.RED);
-        embed.setFooter("ParagonMC Ticket System");
+        embed.setFooter(Config.getString("messages.footerText","Your Server")+" Ticket System");
 
         channel.sendMessageEmbeds(embed.build()).queue(
                 success -> {

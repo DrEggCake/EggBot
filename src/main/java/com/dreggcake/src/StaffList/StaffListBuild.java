@@ -13,6 +13,7 @@ import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.dreggcake.src.Config.Config;
 import com.dreggcake.src.Utility.GuildContext;
 
 public class StaffListBuild {
@@ -48,7 +49,7 @@ public class StaffListBuild {
 
         List<ContainerChildComponent> components = new ArrayList<>();
 
-        components.add(TextDisplay.of("# Paragon Network Staff Team"));
+        components.add(TextDisplay.of("# "+Config.getString("messages.serverName","Your Server")+" Staff Team"));
         components.add(Separator.createDivider(Separator.Spacing.LARGE));
 
         for (Role role : staffRoles.getUniversalStaffRoles()) {

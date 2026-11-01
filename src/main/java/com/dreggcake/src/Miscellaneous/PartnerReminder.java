@@ -1,6 +1,7 @@
 package com.dreggcake.src.Miscellaneous;
 
 import com.dreggcake.src.Utility.Channels;
+import com.dreggcake.src.Config.Config;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 
@@ -29,7 +30,7 @@ public class PartnerReminder implements Runnable {
                         "Give some love to our amazing partner servers and their projects!\n\n" +
                                 "Partner highlights coming soon — stay tuned.")
                 .setColor(new Color(0x9B59B6))
-                .setFooter("Paragon Network Partner Program")
+                .setFooter(Config.getString("messages.footerText","Your Server")+" Partner Program")
                 .build()).queue();
     }
 }

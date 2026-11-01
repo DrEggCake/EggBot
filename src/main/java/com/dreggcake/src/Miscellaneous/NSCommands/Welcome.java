@@ -13,6 +13,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.awt.*;
 import java.time.Instant;
 import com.dreggcake.src.Utility.Channels;
+import com.dreggcake.src.Config.Config;
 
 public class Welcome extends ListenerAdapter {
 
@@ -38,8 +39,8 @@ public class Welcome extends ListenerAdapter {
 
                         "👥 **Members:** " + guild.getMemberCount() + "th member\n\n" +
 
-                        "💻 **Java IP:** **paragonnetwork.us**\n" +
-                        "🛒 **Store:** https://www.paragonnetwork.us/"
+                        "💻 **Java IP:** **"+Config.getString("messages.ip","your.server.ip")+"**\n" +
+                        "🛒 **Store:** "+Config.getString("messages.store","https://your-store.example.com/")
         );
 
         embed.setFooter(guild.getName(), event.getJDA().getSelfUser().getEffectiveAvatarUrl());
@@ -55,7 +56,7 @@ public class Welcome extends ListenerAdapter {
                 .withEmoji(Emoji.fromUnicode("📜"));
 
         Button store = Button
-                .link("https://www.paragonnetwork.us/", "Server Store")
+                .link(Config.getString("messages.store","https://your-store.example.com/"), "Server Store")
                 .withEmoji(Emoji.fromUnicode("🛒"));
 
         welcomeChannel.sendMessage("Welcome to **" + guild.getName() + "**, " + member.getAsMention())

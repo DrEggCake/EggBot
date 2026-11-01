@@ -16,6 +16,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import com.dreggcake.src.Config.Config;
 import com.dreggcake.src.Utility.Channels;
 
 public class CapsListener extends ListenerAdapter {
@@ -132,7 +133,7 @@ public class CapsListener extends ListenerAdapter {
                 .setAuthor(member.getUser().getName() + " has been warned.", null, member.getEffectiveAvatarUrl())
                 .addField("Reason:", "Excessive use of caps", true)
                 .addField("Support:", "Think this is wrong? Let us know at " + Channels.SUPPORT.getAsMention(), false)
-                .setFooter("ParagonMC Auto Moderation")
+                .setFooter(Config.getString("messages.footerText","Your Server")+" Auto Moderation")
                 .setTimestamp(Instant.now());
 
         channel.sendMessageEmbeds(embed.build()).queue();
@@ -145,7 +146,7 @@ public class CapsListener extends ListenerAdapter {
                 .setDescription(member.getAsMention() + " has been **Timed Out**")
                 .addField("Reason", "Excessive use of capital letters", false)
                 .addField("Duration", "2 minutes", false)
-                .setFooter("ParagonMC Auto Moderation")
+                .setFooter(Config.getString("messages.footerText","Your Server")+" Auto Moderation")
                 .setTimestamp(Instant.now());
 
         channel.sendMessageEmbeds(embed.build()).queue();

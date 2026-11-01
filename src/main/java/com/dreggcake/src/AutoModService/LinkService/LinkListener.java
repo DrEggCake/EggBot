@@ -2,6 +2,7 @@ package com.dreggcake.src.AutoModService.LinkService;
 
 import com.dreggcake.src.AutoModService.Common.AutoModBypassService;
 import com.dreggcake.src.AutoModService.Common.AutoModCategoryBypassService;
+import com.dreggcake.src.Config.Config;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.ChannelType;
@@ -11,7 +12,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.time.Duration;
-import java.util.Set;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class LinkListener extends ListenerAdapter {
@@ -26,27 +27,10 @@ public class LinkListener extends ListenerAdapter {
                     "\\b(\\d{1,3}\\.){3}\\d{1,3}\\b"       // IP
                     + ")"
     );
-    private static final Set<String> ALLOWED_DOMAINS = Set.of(
-            "youtube.com",
-            "youtu.be",
-            "imgur.com",
-            "gyazo.com",
-            "tenor.com",
-            "klipy.com",
-            "giphy.com",
-            "cdn.discordapp.com",
-            "paragonnetwork.us",
-            "google.com",
-            "duckduckgo.com",
-            "amazon.com",
-            "amazon.in",
-            "paragon.com",
-            "paragonmc.com",
-            "paragon.net",
-            "paragonmc.net",
-            "paragonnetwork.com",
-            "paragonnetwork.net"
-    );
+
+    private static List<String> getAllowedDomains() {
+        return Config.getStringList("allowedDomains");
+    }
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -112,7 +96,7 @@ public class LinkListener extends ListenerAdapter {
     private boolean isAllowedLink(String content) {
         String lower = content.toLowerCase();
 
-        for (String domain : ALLOWED_DOMAINS) {
+        for (String domain : getAllowedDomains()) {
             if (lower.contains(domain)) {
                 return true;
             }

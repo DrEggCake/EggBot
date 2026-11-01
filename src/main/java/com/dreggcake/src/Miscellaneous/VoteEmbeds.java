@@ -23,14 +23,14 @@ public final class VoteEmbeds {
         List<String> voteLinks = voteLinks();
 
         EmbedBuilder embed = new EmbedBuilder()
-                .setTitle("🗳 Support Paragon Network!")
+                .setTitle("🗳 Support "+Config.getString("messages.serverName","Your Server")+"!")
                 .setColor(new Color(0x3498DB))
                 .setDescription(
                         "Voting takes less than a minute and helps the server grow!\n\n" +
                                 "• You can vote on **every site, every day**\n" +
                                 "• Rewards are waiting for you in-game\n\n" +
                                 "While you are at it, check out our store:\n" + storeLink())
-                .setFooter("Thank you for supporting Paragon Network!");
+                .setFooter("Thank you for supporting "+Config.getString("messages.serverName","Your Server")+"!");
 
         if (!voteLinks.isEmpty()) {
             StringBuilder sites = new StringBuilder();

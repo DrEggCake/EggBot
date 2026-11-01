@@ -117,8 +117,17 @@ public class Main extends ListenerAdapter {
     }
 
     static class ActivityChanger implements Runnable {
-        private final Activity[] activities = new Activity[]{Activity.playing("paragonnetwork.us"), Activity.listening("paragonnetwork.us"), Activity.watching("paragonnetwork.us")};
+        private final Activity[] activities;
         private int currentIndex = 0;
+
+        ActivityChanger() {
+            String ip = Config.getString("messages.ip", "your.server.ip");
+            this.activities = new Activity[]{
+                    Activity.playing(ip),
+                    Activity.listening(ip),
+                    Activity.watching(ip)
+            };
+        }
 
         @Override
         public void run() {

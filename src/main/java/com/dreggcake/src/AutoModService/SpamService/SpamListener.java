@@ -13,6 +13,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 
+import com.dreggcake.src.Config.Config;
+
 public class SpamListener extends ListenerAdapter {
 
     private final SpamDetector spamDetector = new SpamDetector();
@@ -53,7 +55,7 @@ public class SpamListener extends ListenerAdapter {
                 .setAuthor(member.getUser().getName()+" has been Timed Out", null, member.getEffectiveAvatarUrl())
                 .addField("Reason:", "Spamming", false)
                 .addField("Duration:", "2 minutes", false)
-                .setFooter("ParagonMC Auto Moderation")
+                .setFooter(Config.getString("messages.footerText","Your Server")+" Auto Moderation")
                 .setTimestamp(java.time.Instant.now());
 
         channel.sendMessageEmbeds(embed.build()).queue();

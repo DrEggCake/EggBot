@@ -16,6 +16,7 @@ import java.time.Instant;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import com.dreggcake.src.Config.Config;
 import com.dreggcake.src.Utility.Channels;
 import com.dreggcake.src.Utility.Roles;
 import com.dreggcake.src.Utility.GuildContext;
@@ -93,7 +94,7 @@ public final class SwearPunishmentService {
                 .setAuthor(member.getUser().getName()+" has been warned.", null, member.getEffectiveAvatarUrl())
                 .addField("Reason:","Usage of prohibited language",true)
                 .setDescription("This warning will expire in __**10 minutes**__")
-                .setFooter("ParagonMC Auto Moderation")
+                .setFooter(Config.getString("messages.footerText","Your Server")+" Auto Moderation")
                 .setTimestamp(Instant.now());
 
         channel.sendMessageEmbeds(embed.build()).queue();
@@ -106,7 +107,7 @@ public final class SwearPunishmentService {
                 .addField("Reason", "Repeated swearing", false)
                 .addField("Duration", "1 hour", false)
                 .addField("Appeal","Think this was unfair? Appeal at "+Channels.SUPPORT.getAsMention(),false)
-                .setFooter("ParagonMC Auto Moderation")
+                .setFooter(Config.getString("messages.footerText","Your Server")+" Auto Moderation")
                 .setTimestamp(Instant.now());
 
         channel.sendMessageEmbeds(embed.build()).queue();

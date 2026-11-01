@@ -1,5 +1,6 @@
 package com.dreggcake.src.TicketSystem.Commands;
 
+import com.dreggcake.src.Config.Config;
 import com.dreggcake.src.ICommand;
 import com.dreggcake.src.TicketSystem.TicketButton;
 import com.dreggcake.src.TicketSystem.TicketPermissions;
@@ -54,13 +55,13 @@ public class TicketSetupCommand implements ICommand {
 
         EmbedBuilder embed = new EmbedBuilder();
         embed.setTitle(":tickets: Support Tickets");
-        embed.setDescription("Welcome to the Official Support Center of **Paragon Network**\n" +
+        embed.setDescription("Welcome to the Official Support Center of **"+Config.getString("messages.serverName","Your Server")+"**\n" +
                 "Please open a ticket by clicking the button below!\n\n" +
                 "### :warning: PLEASE NOTE: \n" +
                 "When opening a ticket please just don't say \"hi\" or \"hello\" then disappear, try explaining your problem in a well written message.\n\n " +
                 "We try to maintain a short response time, but keep in mind our staff members aren't robots, please be patient! \n" +
                 "You will get a response as soon as possible.");
-        embed.setFooter("ParagonMC Ticket System");
+        embed.setFooter(Config.getString("messages.footerText","Your Server")+" Ticket System");
         embed.setColor(Color.BLUE);
 
         Button createTicketButton = Button.primary(TicketButton.CREATE.getId(), "Create Ticket").withEmoji(Emoji.fromUnicode("\ud83c\udf9f\ufe0f"));
